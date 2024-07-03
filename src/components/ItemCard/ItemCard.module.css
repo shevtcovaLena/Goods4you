@@ -1,0 +1,64 @@
+@import url("../../styles/variables.css");
+
+.cardBox {
+  width: 370px;
+}
+
+.imgBox {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 100%;
+  height: 300px;
+}
+
+.hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(135, 135, 135, 0.25); /* Прозрачность 0.25 */
+  z-index: 1;
+  font-size: 26px;
+  font-weight: 800;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.6);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.extra {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 6px;
+}
+
+.extra p {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  transition: text-decoration 0.3s;
+}
+
+.extra span {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.extra div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cardBox:hover .hover {
+  opacity: 1;
+}
+
+.cardBox:hover p {
+  text-decoration: underline;
+}

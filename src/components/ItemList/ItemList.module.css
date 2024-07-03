@@ -1,0 +1,11 @@
+@import url('../../styles/variables.css');
+
+.catalog {
+    margin: 48px auto;
+}
+
+.itemBox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+}

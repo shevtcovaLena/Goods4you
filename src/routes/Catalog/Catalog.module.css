@@ -1,0 +1,43 @@
+@import url('../../styles/variables.css');
+
+.baner {
+    height: 500px;
+    width: 100%;
+    background-color: var(--bg-header);
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    border-top: 1px solid var(--text-secondary);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    color: var(--text-secondary);    
+}
+
+.content::before {
+    content: "Goods4you";
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    font-size: 200px;
+    font-weight: bold;
+    color: rgba(255,255,255,0.12);
+    margin-top: 78px;
+    z-index: 0;
+}
+
+.content p {
+    font-size: 36px;
+    font-weight: normal;
+    z-index: 1;
+}
+
+.content span {
+    font-size: 16px;
+    font-weight: 600;
+    z-index: 1;
+}

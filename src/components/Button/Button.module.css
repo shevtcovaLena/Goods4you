@@ -1,0 +1,16 @@
+@import url('../../styles/variables.css');
+
+.button {
+    background-color: var(--accent);
+    font-size: 16px;
+    font-weight: normal;
+    border-radius: 4px;
+    color: inherit;
+    z-index: 1;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #8C2828;
+}
