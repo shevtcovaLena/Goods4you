@@ -2,6 +2,7 @@ import React from "react";
 import { IItem } from "../../types/types";
 import styles from "./ItemCard.module.css";
 import { Button } from "..";
+import { Link } from "react-router-dom";
 
 interface ItemCardProps {
   item: IItem;
@@ -15,6 +16,7 @@ const icon: React.ReactNode = (
 
 export function ItemCard({ item }: ItemCardProps) {
   return (
+    <Link to={`/product/${item.id}`} >
     <div className={styles.cardBox}>
       <div className={styles.imgBox}>
         <div className={styles.hover}>Show details</div>
@@ -25,8 +27,11 @@ export function ItemCard({ item }: ItemCardProps) {
           <p>{item.name}</p>
           <span>{`${item.price} $`}</span>
         </div>
-        <Button content={icon} width={50} height={50} onClick={()=>{}}/>
+        <div className={styles.buttonBox}>
+          <Button content={icon} width={50} height={50} onClick={() => {}} />
+        </div>
       </div>
     </div>
+    </Link>
   );
 }

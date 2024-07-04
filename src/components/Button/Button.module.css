@@ -14,3 +14,7 @@
 .button:hover {
     background-color: #8C2828;
 }
+
+.button:disabled {
+    background-color: #F8AFAF;
+}

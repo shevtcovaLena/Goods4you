@@ -2,10 +2,32 @@
 
 .catalog {
     margin: 48px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
 }
 
 .itemBox {
     display: flex;
     flex-wrap: wrap;
     gap: 35px;
+}
+
+
+.catalog input {
+    width: 100%;
+    background-color: #F6F6F6;
+    height: 62px;
+    font-size: 16px;
+    line-height: 22px;
+    border-radius: 4px;
+    padding: 20px;
+}
+
+.catalog input::placeholder {
+    color: #B2B5BB;
+}
+
+.catalog input:focus {
+    outline: none;
 }

@@ -8,7 +8,7 @@ function Root() {
     <>
       <header>
         <div className="container">
-          <span id="logo">Goods4you</span>
+          <Link to="/" id="logo">Goods4you</Link>
           <nav>
             <ul>
               <li>
@@ -45,10 +45,10 @@ function Root() {
       </main>
       <footer>
       <div className="container">
-          <span id="logo">Goods4you</span>
+          <Link to="/" id="logo">Goods4you</Link>
             <ul>
               <li>
-                <Link to="/">Catalog</Link>
+                <Link to={"/"}>Catalog</Link>
               </li>
               <li>
                 <Link to="/about">FAQ</Link>

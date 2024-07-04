@@ -190,3 +190,8 @@ h1 {
   font-size: 36px;
   line-height: 56px;
 }
+
+nav li:hover a,
+footer li:hover a{
+  color: #C4C4C4;
+}

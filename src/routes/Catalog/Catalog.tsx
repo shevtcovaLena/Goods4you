@@ -1,18 +1,19 @@
 // import React from "react";
 import data from "../../assets/data.json";
-import { Button, ItemList } from "../../components/";
+import { AccordionItem, Button, ItemList } from "../../components/";
 import styles from "./Catalog.module.css";
 
 export function Catalog() {
+  
   return (
     <>
-      <div className={styles.baner}>
+      <section className={styles.baner}>
         <div className={`container ${styles.content}`}>
-          <p>
+          <h2>
             Any products from famous brands
             <br />
             with worldwide delivery
-          </p>
+          </h2>
           <span>
             We sell smartphones, laptops, clothes, shoes
             <br />
@@ -20,10 +21,22 @@ export function Catalog() {
           </span>
           <Button content={"Go to shopping"} width={207} height={62} onClick={()=>{}} role="link"/>
         </div>
-      </div>
-      <div className="container">
+      </section>
+      <section className="container" id="catalog">
         <ItemList items={data} />
-      </div>
+      </section>
+      <section className={styles.FAQ}>
+        <div className={styles.FAQ_content}>
+          <h2>FAQ</h2>
+          <hr/>
+          <AccordionItem title='How can I track the status of my order?' children='After placing your order, you will receive a confirmation email containing your order number and a tracking link. You can also log in to your account on our website and go to the "My Orders" section to track your delivery status.'/>
+          <hr/>
+          <AccordionItem title='What payment methods do you accept?' children='After placing your order, you will receive a confirmation email containing your order number and a tracking link. You can also log in to your account on our website and go to the "My Orders" section to track your delivery status.'/>
+          <hr/>
+          <AccordionItem title='How can I return or exchange an item?' children='After placing your order, you will receive a confirmation email containing your order number and a tracking link. You can also log in to your account on our website and go to the "My Orders" section to track your delivery status.'/>
+          <hr/>
+        </div>
+      </section>
     </>
   );
 }
