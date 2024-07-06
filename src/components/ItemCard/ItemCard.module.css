@@ -1,5 +1,3 @@
-@import url("../../styles/variables.css");
-
 .cardBox {
   width: 370px;
 }
@@ -35,12 +33,16 @@
   justify-content: space-between;
   margin-top: 10px;
   margin-bottom: 6px;
+  width: 100%;
 }
 
 .extra p {
   font-size: 16px;
   line-height: 20px;
   font-weight: 600;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
   transition: text-decoration 0.3s;
 }
 
@@ -49,14 +51,20 @@
   line-height: 24px;
 }
 
-.extra div {
+.extraLeft {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  flex: 1 1 0;
+  min-width: 100px;
 }
 
-.cardBox:hover .hover {
+.imgBox:hover .hover {
   opacity: 1;
+}
+
+.link:hover {
+  text-decoration: none;
 }
 
 .cardBox:hover p {

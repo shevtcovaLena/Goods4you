@@ -1,5 +1,5 @@
-import React from "react";
-import { ItemCard } from "../";
+// import React from "react";
+import { Button, ItemCard } from "../";
 import { IItem } from "../../types/types";
 import styles from "./ItemList.module.css";
 
@@ -16,6 +16,14 @@ export function ItemList({ items }: ItemListProps) {
         {items.map((item) => (
           <ItemCard key={item.id} item={item} />
         ))}
+      </div>
+      <div className={styles.buttonBox}>
+        <Button
+          content={"Show more"}
+          width={177}
+          height={62}
+          onClick={() => {}}
+        />
       </div>
     </div>
   );

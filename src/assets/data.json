@@ -4,28 +4,32 @@
     "name": "Essence Mascara Lash Princess",
     "price": 110,
     "currency": "USD",
-    "image": "/src/assets/Item.jpg"
+    "image": "/src/assets/Item.jpg",
+    "count": 1
   },
   {
     "id": 2,
     "name": "Essence Mascara Lash Princess",
     "price": 110,
     "currency": "USD",
-    "image": "/src/assets/Item.jpg"
+    "image": "/src/assets/Item.jpg",
+    "count": 1
   },
   {
     "id": 3,
     "name": "Essence Mascara Lash Princess",
     "price": 110,
     "currency": "USD",
-    "image": "/src/assets/Item.jpg"
+    "image": "/src/assets/Item.jpg",
+    "count": 5
   },
   {
     "id": 4,
     "name": "Essence Mascara Lash Princess",
     "price": 110,
     "currency": "USD",
-    "image": "/src/assets/Item.jpg"
+    "image": "/src/assets/Item.jpg",
+    "count": 0
   },
   {
     "id": 5,
@@ -39,7 +43,8 @@
     "name": "Essence Mascara Lash Princess",
     "price": 110,
     "currency": "USD",
-    "image": "/src/assets/Item.jpg"
+    "image": "/src/assets/Item.jpg",
+    "catalogCount": 1
   },
   {
     "id": 7,

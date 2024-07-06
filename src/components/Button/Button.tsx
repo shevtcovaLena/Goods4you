@@ -13,7 +13,7 @@ interface Props {
 export function Button({content, width, height, onClick, role, disable=false }:Props) {
     
     return (
-        <button disabled={disable} className={styles.button} style={{width: `${width}px`, height: `${height}px`}} onClick={(e) => onClick(e)} role={role? role : 'button'} >{content}</button>
+        <button disabled={disable} className={styles.button} style={{width: `${width}px`, height: `${height}px`}} onClick={(e) => {onClick(e)}} role={role? role : 'button'} >{content}</button>
     )
 }
 

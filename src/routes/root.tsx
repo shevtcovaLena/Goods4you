@@ -3,7 +3,7 @@
 import { Link, Outlet } from "react-router-dom";
 
 function Root() {
-  const cartCount = 0;
+  const cartCount = 1;
   return (
     <>
       <header>
@@ -12,13 +12,13 @@ function Root() {
           <nav>
             <ul>
               <li>
-                <Link to="/">Catalog</Link>
+                <Link to="/#catalog">Catalog</Link>
               </li>
               <li>
-                <Link to="/about">FAQ</Link>
+                <Link to="/">FAQ</Link>
               </li>
               <li>
-                <Link to="/services" className="link-with-icon">
+                <Link to="/cart" className="link-with-icon">
                   Cart
                   <span className="icon">
                       <svg
@@ -51,7 +51,7 @@ function Root() {
                 <Link to={"/"}>Catalog</Link>
               </li>
               <li>
-                <Link to="/about">FAQ</Link>
+                <Link to="/">FAQ</Link>
               </li>              
             </ul>
         </div>

@@ -4,4 +4,6 @@ export interface IItem {
     price: number;
     currency: string;
     image: string;
+    count?: number;
+    catalogCount?: number;
   }

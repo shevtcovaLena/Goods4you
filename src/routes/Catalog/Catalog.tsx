@@ -23,7 +23,7 @@ export function Catalog() {
         </div>
       </section>
       <section className="container" id="catalog">
-        <ItemList items={data} />
+        <ItemList items={data} />        
       </section>
       <section className={styles.FAQ}>
         <div className={styles.FAQ_content}>

@@ -1,57 +1,93 @@
-@import url("../../styles/variables.css");
-
 .product {
-  margin: 48px 0;
+  margin: 48px auto;
   display: flex;
   gap: 40px;
-  /* flex-wrap: wrap; */
-}
-
-.imageBox {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.bigImage {
-  width: 520px;
-  height: 520px;
-  overflow: hidden;
-  border-radius: 4px;
-}
-
-.galleryItem,
-.galleryItem_bordered {
-  width: 70px;
-  height: 70px;
-  overflow: hidden;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.bigImage img,
-.galleryItem img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.gallery {
-    width: 520px;
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-}
-
-.selected {
-    border: 3px solid #C4C4C4;    
 }
 
 .infoBox {
-    width: 100%;;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
 .productMeta {
     display: flex;
     justify-content: space-between;
+    margin-top: 16px;
+}
+
+.category {
+  font-size: 16px;
+  line-height: 24px;
+  color: #646464;
+}
+
+.stockStatus {
+  color: var(--accent);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  padding: 12px 0;
+  border-top: 1px solid #C4C4C4;
+  border-bottom: 1px solid #C4C4C4;
+}
+
+.description {
+  font-size: 18px;
+  color: var(--bg-footer);
+  line-height: 30px;
+}
+
+.terms {
+  font-size: 16px;
+  line-height: 24px;
+  color: #646464;
+  display: flex;
+  flex-direction: column;
+  gap: 12px
+}
+
+.productFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 4px;
+}
+
+.price {
+  display: flex;
+  align-items: center;
+}
+
+.priceLeft {
+  padding: 0 24px 0 20px;
+  border-right: 1px solid #D5D5D5;
+}
+
+.currentPrice {
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: 600;
+  color: var(--bg-footer);
+}
+
+.oldPrice {
+  font-size: 16px;
+  line-height: 20px;
+  color: #646464;
+  text-decoration: line-through;
+}
+
+.discount {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--bg-footer);
+  padding: 0 20px 0 24px;
+}
+
+.discount span {
+  font-weight: 600;
 }

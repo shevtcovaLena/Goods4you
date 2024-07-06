@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./styles/index.css";
 import Root from "./routes/root.tsx";
-import { ErrorPage, Catalog, ProductPage } from "./routes/";
+import { ErrorPage, Catalog, ProductPage, Cart } from "./routes/";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +17,10 @@ const router = createBrowserRouter([
         element: <ProductPage />,
         // loader: contactLoader,
         // action: contactAction,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
       },
     ],
   },
