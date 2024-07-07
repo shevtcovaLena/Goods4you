@@ -70,3 +70,21 @@
   cursor: pointer;
   font-family: "Jost", sans-serif;
 }
+
+@media (max-width: 650px) {
+  .card {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .rightPart {
+    align-self: flex-end;
+    gap: 12px
+  }
+}
+
+@media (max-width: 350px) {
+  .card {
+    border-bottom: 1px solid #e5e5e5;
+  }
+}

@@ -13,8 +13,6 @@ interface Props {
   onClick: () => void;
 }
 
-
-
 export function CartItem({
   item,
   count,

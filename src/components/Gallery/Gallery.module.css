@@ -38,3 +38,16 @@
 .selected {
     border: 3px solid #C4C4C4;    
 }
+
+@media (max-width: 580px) {
+  .bigImage {
+    width: 89vw;
+    height: 89vw;
+  }
+  
+  .gallery,
+  .imageBox {
+    width: 89vw;
+  }
+
+}

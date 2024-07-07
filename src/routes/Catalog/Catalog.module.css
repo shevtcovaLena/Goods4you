@@ -63,7 +63,17 @@ hr {
   border-top: 1px solid white;
 }
 
-/* #catalog {
-  margin-left: 10px;
-  margin-right: 10px;
-} */
+@media (max-width: 1150px) and (min-width: 810px) {
+  .content::before {
+    font-size: 15vw; 
+  }
+}
+
+@media (max-width: 810px) {
+  .content::before {
+    font-size: 25vw;
+    line-height: 30vw;
+    margin-top: 3vw;
+    content: "Goods 4you"; 
+  }
+}

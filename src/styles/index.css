@@ -1,20 +1,19 @@
-@import url('./variables.css');
+@import url("./variables.css");
 
 @font-face {
-  font-family: 'Jost';
-  src: url('/src/assets/fonts/Jost-ExtraBold.woff2') format('woff2'),
-      url('/src/assets/fonts/Jost-ExtraBold.woff') format('woff');
+  font-family: "Jost";
+  src: url("/src/assets/fonts/Jost-ExtraBold.woff2") format("woff2"),
+    url("/src/assets/fonts/Jost-ExtraBold.woff") format("woff");
   font-weight: 800;
   font-style: normal;
   unicode-range: U+0020-007F, U+20A0-20CF;
   font-display: swap;
 }
 
-
 @font-face {
-  font-family: 'Jost';
-  src: url('/src/assets/fonts/Jost-Bold.woff2') format('woff2'),
-      url('/src/assets/fonts/Jost-Bold.woff') format('woff');
+  font-family: "Jost";
+  src: url("/src/assets/fonts/Jost-Bold.woff2") format("woff2"),
+    url("/src/assets/fonts/Jost-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
   unicode-range: U+0020-007F, U+20A0-20CF;
@@ -22,9 +21,9 @@
 }
 
 @font-face {
-  font-family: 'Jost';
-  src: url('/src/assets/fonts/Jost-SemiBold.woff2') format('woff2'),
-  url('/src/assets/fonts/Jost-SemiBold.woff') format('woff');
+  font-family: "Jost";
+  src: url("/src/assets/fonts/Jost-SemiBold.woff2") format("woff2"),
+    url("/src/assets/fonts/Jost-SemiBold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
   unicode-range: U+0020-007F, U+20A0-20CF;
@@ -32,9 +31,9 @@
 }
 
 @font-face {
-  font-family: 'Jost';
-  src: url('/src/assets/fonts/Jost-Medium.woff2') format('woff2'),
-  url('/src/assets/fonts/Jost-Medium.woff') format('woff');
+  font-family: "Jost";
+  src: url("/src/assets/fonts/Jost-Medium.woff2") format("woff2"),
+    url("/src/assets/fonts/Jost-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
   unicode-range: U+0020-007F, U+20A0-20CF;
@@ -42,9 +41,9 @@
 }
 
 @font-face {
-  font-family: 'Jost';
-  src: url('/src/assets/fonts/Jost-Regular.woff2') format('woff2'),
-  url('/src/assets/fonts/Jost-Regular.woff') format('woff');
+  font-family: "Jost";
+  src: url("/src/assets/fonts/Jost-Regular.woff2") format("woff2"),
+    url("/src/assets/fonts/Jost-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   unicode-range: U+0020-007F, U+20A0-20CF;
@@ -59,16 +58,17 @@
   font-family: "Jost", sans-serif;
 }
 
-ul, ol {
+ul,
+ol {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 a {
-  text-decoration: none; 
+  text-decoration: none;
   color: inherit;
-} 
+}
 
 a:hover {
   text-decoration: underline;
@@ -83,7 +83,7 @@ li {
   font-weight: 400;
   color: var(--text-primary);
   background-color: var(--bg-primary);
-  
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -106,7 +106,7 @@ header {
   align-items: center;
 }
 
-header {  
+header {
   background-color: var(--bg-header);
 }
 
@@ -129,7 +129,7 @@ main {
 }
 
 header .container,
-footer .container {  
+footer .container {
   display: flex;
   justify-content: space-between;
 }
@@ -193,6 +193,19 @@ h1 {
 }
 
 nav li:hover a,
-footer li:hover a{
-  color: #C4C4C4;
+footer li:hover a {
+  color: #c4c4c4;
+}
+
+@media (max-width: 540px) {
+  header .container {
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  nav,
+  ul {
+    gap: 30px;
+  }
 }

@@ -12,14 +12,6 @@
     gap: 20px;
 }
 
-/* .itemBox {
-    display: flex;
-    justify-content: center  ;
-    flex-wrap: wrap;
-    gap: 35px;
-} */
-
-
 .catalog input {
     width: 100%;
     background-color: #F6F6F6;
@@ -41,4 +33,10 @@
 .buttonBox {
     display: flex;
     justify-content: center;
+}
+
+@media (max-width: 1150px) {
+    .itemBox {
+        justify-content: center;
+    } 
 }

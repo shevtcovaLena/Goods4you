@@ -73,3 +73,34 @@
 .total span {
   font-weight: 700;
 }
+
+@media (max-width: 1220px) {
+  .cart {
+    width: 90%;
+    margin: auto;
+    max-width: 776px;
+  }
+  
+  .content {
+    max-width: 776px;
+    flex-direction: column;
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 815px) {
+  .contentLeft {
+    padding: 10px 20px;
+  }
+
+  .contentRight {
+    min-width: 285px;
+  }
+}
+
+@media (max-width: 350px) {
+  .contentLeft {
+    padding: 0;
+    border: none;
+  }
+}

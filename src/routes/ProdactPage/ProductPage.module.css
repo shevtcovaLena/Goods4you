@@ -5,16 +5,16 @@
 }
 
 .infoBox {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .productMeta {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
 }
 
 .category {
@@ -29,8 +29,8 @@
   font-size: 18px;
   line-height: 24px;
   padding: 12px 0;
-  border-top: 1px solid #C4C4C4;
-  border-bottom: 1px solid #C4C4C4;
+  border-top: 1px solid #c4c4c4;
+  border-bottom: 1px solid #c4c4c4;
 }
 
 .description {
@@ -45,7 +45,7 @@
   color: #646464;
   display: flex;
   flex-direction: column;
-  gap: 12px
+  gap: 12px;
 }
 
 .productFooter {
@@ -53,7 +53,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 12px;
-  background-color: rgba(0,0,0,0.04);
+  background-color: rgba(0, 0, 0, 0.04);
   border-radius: 4px;
 }
 
@@ -64,7 +64,7 @@
 
 .priceLeft {
   padding: 0 24px 0 20px;
-  border-right: 1px solid #D5D5D5;
+  border-right: 1px solid #d5d5d5;
 }
 
 .currentPrice {
@@ -90,4 +90,29 @@
 
 .discount span {
   font-weight: 600;
+}
+
+@media (max-width: 1020px) {
+  .product {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .product {
+    width: 90%;
+  }
+}
+
+@media (max-width: 530px) {
+  .productFooter {
+    flex-direction: column;
+    gap: 24px;
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  .price {
+    background-color: rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+    padding: 12px;
+  }
 }
