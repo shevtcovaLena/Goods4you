@@ -15,7 +15,7 @@ function Root() {
                 <Link to="/#catalog">Catalog</Link>
               </li>
               <li>
-                <Link to="/">FAQ</Link>
+                <Link to="/#faq">FAQ</Link>
               </li>
               <li>
                 <Link to="/cart" className="link-with-icon">
@@ -47,12 +47,12 @@ function Root() {
       <div className="container">
           <Link to="/" id="logo">Goods4you</Link>
             <ul>
-              <li>
-                <Link to={"/"}>Catalog</Link>
+            <li>
+                <Link to="/#catalog">Catalog</Link>
               </li>
               <li>
-                <Link to="/">FAQ</Link>
-              </li>              
+                <Link to="/#faq">FAQ</Link>
+              </li>
             </ul>
         </div>
       </footer>

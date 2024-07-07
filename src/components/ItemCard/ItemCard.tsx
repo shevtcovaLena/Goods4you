@@ -21,7 +21,10 @@ export function ItemCard({ item }: ItemCardProps) {
             <p>{item.name}</p>
             <span>{`${item.price} $`}</span>
           </div>
-          <div onClick={(e) => e.stopPropagation()}>
+          <div onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            }}>
           <Counter count={item.catalogCount} />
           </div>
         </div>

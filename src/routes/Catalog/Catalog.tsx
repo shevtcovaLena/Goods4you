@@ -1,10 +1,25 @@
 // import React from "react";
+import { useEffect } from "react";
 import data from "../../assets/data.json";
 import { AccordionItem, Button, ItemList } from "../../components/";
 import styles from "./Catalog.module.css";
+import { useLocation } from 'react-router-dom'
 
 export function Catalog() {
-  
+    const { pathname, hash, key } = useLocation();
+
+  useEffect(() => {
+    if (hash !== '') {
+      setTimeout(() => {
+        const id = hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 0);
+    }
+  }, [pathname, hash, key]);
+
   return (
     <>
       <section className={styles.baner}>
@@ -25,7 +40,7 @@ export function Catalog() {
       <section className="container" id="catalog">
         <ItemList items={data} />        
       </section>
-      <section className={styles.FAQ}>
+      <section className={styles.FAQ} id="faq">
         <div className={styles.FAQ_content}>
           <h2>FAQ</h2>
           <hr/>

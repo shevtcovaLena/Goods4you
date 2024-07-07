@@ -15,8 +15,6 @@ const router = createBrowserRouter([
       {
         path: "product/:productId",
         element: <ProductPage />,
-        // loader: contactLoader,
-        // action: contactAction,
       },
       {
         path: "cart",
