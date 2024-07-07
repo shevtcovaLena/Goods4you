@@ -1,11 +1,12 @@
 // import { useState } from 'react'
 
+import { HelmetProvider } from "react-helmet-async";
 import { Link, Outlet } from "react-router-dom";
 
 function Root() {
   const cartCount = 1;
   return (
-    <>
+    <HelmetProvider>
       <header>
         <div className="container">
           <Link to="/" id="logo">Goods4you</Link>
@@ -56,7 +57,7 @@ function Root() {
             </ul>
         </div>
       </footer>
-    </>
+    </HelmetProvider>
   );
 }
 

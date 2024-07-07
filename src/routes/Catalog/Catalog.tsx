@@ -4,24 +4,35 @@ import data from "../../assets/data.json";
 import { AccordionItem, Button, ItemList } from "../../components/";
 import styles from "./Catalog.module.css";
 import { useLocation } from 'react-router-dom'
+import { Helmet } from "react-helmet-async";
 
 export function Catalog() {
-    const { pathname, hash, key } = useLocation();
+  const { pathname, hash, key } = useLocation();
+
+  const handleScrollToCatalog = (elementId: string) => {
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   useEffect(() => {
-    if (hash !== '') {
+    if (hash === '') {
+      window.scrollTo(0, 0);
+    }
+    else {
       setTimeout(() => {
         const id = hash.replace('#', '');
-        const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
+        handleScrollToCatalog(id)
       }, 0);
     }
   }, [pathname, hash, key]);
 
-  return (
+    return (
     <>
+    <Helmet>
+      <title>Catalog | Goods4you</title>
+    </Helmet>
       <section className={styles.baner}>
         <div className={`container ${styles.content}`}>
           <h2>
@@ -34,7 +45,7 @@ export function Catalog() {
             <br />
             and many other products at low prices
           </span>
-          <Button content={"Go to shopping"} width={207} height={62} onClick={()=>{}} role="link"/>
+          <Button content={"Go to shopping"} width={207} height={62} onClick={()=>{handleScrollToCatalog('catalog')}} role="link"/>
         </div>
       </section>
       <section className="container" id="catalog">
