@@ -11,6 +11,10 @@
   gap: 24px;
 }
 
+.infoBox h1 {
+  font-weight: 600;
+}
+
 .productMeta {
   display: flex;
   justify-content: space-between;
