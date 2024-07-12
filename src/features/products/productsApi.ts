@@ -14,27 +14,31 @@ export const productsApi = createApi({
     getProductById: builder.query<IItem, string>({
       query: (id) => `products/${id}`,
     }),
-    // addPost: builder.mutation({
-    //   query: (newPost) => ({
-    //     url: 'products',
-    //     method: 'POST',
-    //     body: newPost,
-    //   }),
-    // }),
-    // updatePost: builder.mutation({
-    //   query: ({ id, ...updatedPost }) => ({
-    //     url: `products/${id}`,
-    //     method: 'PUT',
-    //     body: updatedPost,
-    //   }),
-    // }),
-    // deletePost: builder.mutation({
-    //   query: (id) => ({
-    //     url: `products/${id}`,
-    //     method: 'DELETE',
-    //   }),
-    // }),
   }),
 });
 
 export const { useGetProductsQuery, useGetProductByIdQuery } = productsApi;
+
+
+//---------------------------------------------------------------------------
+
+// addPost: builder.mutation({
+//   query: (newPost) => ({
+//     url: 'products',
+//     method: 'POST',
+//     body: newPost,
+//   }),
+// }),
+// updatePost: builder.mutation({
+//   query: ({ id, ...updatedPost }) => ({
+//     url: `products/${id}`,
+//     method: 'PUT',
+//     body: updatedPost,
+//   }),
+// }),
+// deletePost: builder.mutation({
+//   query: (id) => ({
+//     url: `products/${id}`,
+//     method: 'DELETE',
+//   }),
+// }),

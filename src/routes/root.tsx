@@ -12,7 +12,7 @@ function Root() {
   const cartInfo = useAppSelector((store) => store.cartSlice.cartInfo)
   
   useEffect(() =>{
-    void dispatch(fetchUserCartById(33))
+    void dispatch(fetchUserCartById(23))
   }, [dispatch])
   
   
@@ -34,9 +34,9 @@ function Root() {
                   Cart
                   <span className="icon">
                       { CartIcon }
-                    <div className="circle-badge">
+                    {cartInfo.totalQuantity? <div className="circle-badge">
                       <p>{cartInfo.totalQuantity}</p>
-                    </div>
+                    </div> : <></>}
                   </span>
                 </Link>
               </li>

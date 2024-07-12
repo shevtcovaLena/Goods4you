@@ -1,23 +1,14 @@
-import { /*useEffect,*/ useState } from "react";
+import { useState } from "react";
 import styles from "./Cart.module.css";
-// import data from "../../assets/data.json";
 import { CartItem } from "../../components";
-// import { IItem } from "../../types/types";
 import { Helmet } from "react-helmet-async";
 import { useAppSelector } from "../../features/hooks";
 import { ICartInfo } from "../../types/types";
 
 
 export function Cart() {
-  // const [count, setCount] = useState<Record<string, number>>({});
   const cartData: ICartInfo = useAppSelector((store) => (store.cartSlice.cartInfo))
   const [current, setCurrent] = useState<number | null>(null);
-
-  // useEffect(() => {
-  //   data.forEach((item) => {
-  //     setCount((pre) => ({ ...pre, [String(item.id)]: 1 }));
-  //   });
-  // }, []);
 
   return (
     <>
@@ -26,7 +17,7 @@ export function Cart() {
     </Helmet>
     <div className={`container ${styles.cart}`}>
         <h1>My cart</h1>
-        <div className={styles.content}>
+        {cartData.totalProducts ? <div className={styles.content}>
           <div className={styles.contentLeft}>
             {cartData.products.map((item) => (
               <CartItem
@@ -56,7 +47,7 @@ export function Cart() {
               </div>
             </div>
           </div>
-        </div>
+        </div> : <div className={styles.nodata}>No items</div>}
       </div>
       </>
   );

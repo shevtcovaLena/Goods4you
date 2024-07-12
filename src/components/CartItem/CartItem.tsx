@@ -11,19 +11,19 @@ interface Props {
   current: boolean;
   // onPlus: () => void;
   // onMinus: () => void;
-  onClick: () => void;
+  // onClick: () => void;
 }
 
 export function CartItem({
   item,
   count,
   current,
-  /*onPlus, onMinus,*/ onClick,
+  /*onPlus, onMinus, onClick,*/
 }: Props) {
   return (
     <div
       className={`${styles.card} ${current ? styles.active : ""}`}
-      onClick={onClick}
+      onClick={() => {}}
     >
       <div
         className={styles.leftPart}

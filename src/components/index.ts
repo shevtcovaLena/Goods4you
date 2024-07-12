@@ -6,3 +6,5 @@ export { Rating } from "./Rating/Rating";
 export { Gallery } from "./Gallery/Gallery";
 export { CartItem } from "./CartItem/CartItem";
 export { Counter } from "./Counter/Counter";
+export { Preview } from "./Preview/Preview";
+export { Loader } from "./Loader/Loader";

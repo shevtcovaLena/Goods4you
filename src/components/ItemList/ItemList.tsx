@@ -1,6 +1,6 @@
 // import React from "react";
 import { useEffect, useState } from "react";
-import { Button, ItemCard } from "../";
+import { Button, ItemCard, Loader } from "../";
 import { IItem } from "../../types/types";
 import styles from "./ItemList.module.css";
 import { debounce } from "lodash";
@@ -40,9 +40,9 @@ export function ItemList() {
       <h1>Catalog</h1>
       <input placeholder="Search by title" onChange={inputHandler}></input>
       <div className={styles.itemBox}>
-        {items.length && !isLoading ?
-          items.map((item) => <ItemCard key={item.id} item={item} />) : <p>No products</p>}
-        {isLoading && "Loading..."}
+        {isLoading && <Loader variant="large"/>}
+        {!!items.length && !isLoading && items.map((item) => <ItemCard key={item.id} item={item} />)}        
+        {!items.length && !isLoading && <p>No products</p>}
       </div>
       {data && (skip + 12) < data.total && <div className={styles.buttonBox}>
         <Button

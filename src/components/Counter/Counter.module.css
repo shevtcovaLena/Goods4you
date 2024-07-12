@@ -7,6 +7,10 @@
     flex-shrink: 0;
 }
 
+.counter.large {
+    width: 254px;
+}
+
 .number {
     text-align: center;
     font-size: 14px;

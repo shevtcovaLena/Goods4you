@@ -71,6 +71,11 @@
   font-family: "Jost", sans-serif;
 }
 
+.delete:hover {
+  color: var(--text-primary);
+  text-decoration: underline;
+}
+
 @media (max-width: 650px) {
   .card {
     flex-direction: column;

@@ -1,0 +1,19 @@
+// import React from 'react'
+
+export function Loader({variant} : {variant: "small" | "large"}) {
+const large = {
+    width: "250px",
+    height: "250px",
+}
+
+const small = {
+    width: "50px",
+    height: "50px",
+}
+
+    return (
+       <div className="loader-box">
+        <span className="loader" style={variant==="small"? small: large}></span>
+       </div> 
+    )
+}
