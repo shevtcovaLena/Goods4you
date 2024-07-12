@@ -1,11 +1,12 @@
 // import React from "react";
-import { IItem } from "../../types/types";
+import { ICartItem } from "../../types/types";
 import styles from "./CartItem.module.css";
 import { Link } from "react-router-dom";
 import { Counter } from "../";
+import { getPrice } from "../../helpers/getPrice";
 
 interface Props {
-  item: IItem;
+  item: ICartItem;
   count: number;
   current: boolean;
   // onPlus: () => void;
@@ -29,13 +30,13 @@ export function CartItem({
         style={{ opacity: count === 0 ? "0.65" : "" }}
       >
         <div className={styles.image}>
-          <img src={item.image} alt="Item in cart" />
+          <img src={item.thumbnail} alt="Item in cart" />
         </div>
         <div className={styles.extra}>          
             <Link to={`/product/${item.id}`}>
-              <p>{item.name}</p>
+              <p>{item.title}</p>
             </Link>
-            <span>{`${item.price} $`}</span>          
+            <span>{`${getPrice(item.price, item.discountPercentage)} $`}</span>          
         </div>
       </div>
       <div className={styles.rightPart}>

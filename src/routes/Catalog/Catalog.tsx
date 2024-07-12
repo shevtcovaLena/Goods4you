@@ -1,6 +1,5 @@
 // import React from "react";
 import { useEffect } from "react";
-import data from "../../assets/data.json";
 import { AccordionItem, Button, ItemList } from "../../components/";
 import styles from "./Catalog.module.css";
 import { useLocation } from 'react-router-dom'
@@ -49,7 +48,9 @@ export function Catalog() {
         </div>
       </section>
       <section className="container" id="catalog">
-        <ItemList items={data} />        
+        <ItemList 
+        // items={data} 
+        />        
       </section>
       <section className={styles.FAQ} id="faq">
         <div className={styles.FAQ_content}>

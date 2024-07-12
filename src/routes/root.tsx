@@ -2,9 +2,20 @@
 
 import { HelmetProvider } from "react-helmet-async";
 import { Link, Outlet } from "react-router-dom";
+import { CartIcon } from "../components/Icons/Icons";
+import { useAppDispatch, useAppSelector } from "../features/hooks";
+import { useEffect } from "react";
+import { fetchUserCartById } from "../features/cart/cartThunkActions";
 
 function Root() {
-  const cartCount = 1;
+  const dispatch = useAppDispatch();
+  const cartInfo = useAppSelector((store) => store.cartSlice.cartInfo)
+  
+  useEffect(() =>{
+    void dispatch(fetchUserCartById(33))
+  }, [dispatch])
+  
+  
   return (
     <HelmetProvider>
       <header>
@@ -22,16 +33,9 @@ function Root() {
                 <Link to="/cart" className="link-with-icon">
                   Cart
                   <span className="icon">
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        fill="white"
-                      >
-                        <use href="/src/assets/icons.svg#cart" />
-                      </svg>
+                      { CartIcon }
                     <div className="circle-badge">
-                      <p>{cartCount}</p>
+                      <p>{cartInfo.totalQuantity}</p>
                     </div>
                   </span>
                 </Link>

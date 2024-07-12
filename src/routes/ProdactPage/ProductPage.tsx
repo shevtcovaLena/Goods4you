@@ -1,57 +1,51 @@
 // import React from "react";
 import { useParams } from "react-router-dom";
-import data from "../../assets/data.json";
-import { IItem } from "../../types/types";
 import styles from "./ProductPage.module.css";
-import { Button, Gallery, Rating } from "../../components";
+import { Counter, Gallery, Rating } from "../../components";
 import { Helmet } from "react-helmet-async";
+import { useGetProductByIdQuery } from "../../features/products/productsApi";
+import { getPrice } from "../../helpers/getPrice";
 
 export function ProductPage() {
   const { productId } = useParams<{ productId: string }>();
-  const item = data.find((el) => el.id === Number(productId)) as IItem;
+  const { data, error, isLoading } = useGetProductByIdQuery(productId as string);
 
   return (
     <>
     <Helmet>
-      <title>{`${item.name} | Goods4you`}</title>
+      <title>{`${data?.title} | Goods4you`}</title>
     </Helmet>
     <div className={`container ${styles.product}`}>
-        <Gallery images={new Array(6).fill("/src/assets/photo.jpg")} />
+        <Gallery images={data?.images as string[]} />
         <div className={styles.infoBox}>
           <div>
-            <h1>{item.name}</h1>
+            <h1>{data?.title}</h1>
             <div className={styles.productMeta}>
-              <Rating rating={4} />
+              <Rating rating={Math.round(data?.rating || 0)} />
               <div className={styles.category}>
-                electronics, selfie accessories
+                {data?.tags.join(", ")}
               </div>
             </div>
           </div>
-          <div className={styles.stockStatus}>In Stock - Only 5 left!</div>
+          <div className={styles.stockStatus}>{data?.stock? `${data?.availabilityStatus} - Only ${data?.stock} left!`: `${data?.availabilityStatus}`}</div>
           <div className={styles.description}>
-            The Essence Mascara Lash Princess is a popular mascara known for its
-            volumizing and lengthening effects. Achieve dramatic lashes with this
-            long-lasting and cruelty-free formula.
+            {data?.description}
           </div>
           <div className={styles.terms}>
-            <div>1 month warranty</div>
-            <div>Ships in 1 month</div>
+            <div>{data?.warrantyInformation}</div>
+            <div>{data?.shippingInformation}</div>
           </div>
           <div className={styles.productFooter}>
             <div className={styles.price}>
               <div className={styles.priceLeft}>
-                <div className={styles.currentPrice}>7.17$</div>
-                <div className={styles.oldPrice}>9.99$</div>
+                <div className={styles.currentPrice}>{`${getPrice(data?.price, data?.discountPercentage)}$`}</div>
+                <div className={styles.oldPrice}>{`${data?.price}$`}</div>
               </div>
               <div className={styles.discount}>
-                Your discount: <span>14.5%</span>
+                Your discount: <span>{`${data?.discountPercentage}%`}</span>
               </div>
             </div>
-            <Button
-              content={"Add to cart"}
-              width={176}
-              height={62}
-              onClick={() => { } } />
+            <Counter count={0} variation="large" />
           </div>
         </div>
       </div>

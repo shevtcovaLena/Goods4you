@@ -1,16 +1,16 @@
 import { /*useEffect,*/ useState } from "react";
 import styles from "./Cart.module.css";
-import data from "../../assets/data.json";
+// import data from "../../assets/data.json";
 import { CartItem } from "../../components";
-import { IItem } from "../../types/types";
+// import { IItem } from "../../types/types";
 import { Helmet } from "react-helmet-async";
+import { useAppSelector } from "../../features/hooks";
+import { ICartInfo } from "../../types/types";
 
-const cartData:NonNullable<IItem>[] = data
-  .slice(0, 4)
-  .map((item) => ({ ...item, image: "/src/assets/photo.jpg" }));
 
 export function Cart() {
   // const [count, setCount] = useState<Record<string, number>>({});
+  const cartData: ICartInfo = useAppSelector((store) => (store.cartSlice.cartInfo))
   const [current, setCurrent] = useState<number | null>(null);
 
   // useEffect(() => {
@@ -28,11 +28,11 @@ export function Cart() {
         <h1>My cart</h1>
         <div className={styles.content}>
           <div className={styles.contentLeft}>
-            {cartData.map((item) => (
+            {cartData.products.map((item) => (
               <CartItem
                 key={item.id}
                 item={item}
-                count={item.count as number}
+                count={item.quantity as number}
                 current={current === item.id ? true : false}
                 onClick={() => setCurrent(item.id)} />
             ))}
@@ -41,18 +41,18 @@ export function Cart() {
             <div className={styles.calculation}>
               <div className={styles.line}>
                 <p>Total count</p>
-                <span>3 items</span>
+                <span>{`${cartData.totalQuantity} items`}</span>
               </div>
               <div className={styles.line}>
                 <p>Price without discount</p>
-                <span>700$</span>
+                <span>{`${cartData.total}$`}</span>
               </div>
             </div>
 
             <div className={styles.total}>
               <div className={styles.line}>
                 <p>Total price</p>
-                <span>590$</span>
+                <span>{`${cartData.discountedTotal}$`}</span>
               </div>
             </div>
           </div>
