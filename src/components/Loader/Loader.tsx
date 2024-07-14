@@ -4,6 +4,7 @@ export function Loader({variant} : {variant: "small" | "large"}) {
 const large = {
     width: "250px",
     height: "250px",
+    margin: "24px"
 }
 
 const small = {

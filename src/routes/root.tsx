@@ -3,9 +3,9 @@
 import { HelmetProvider } from "react-helmet-async";
 import { Link, Outlet } from "react-router-dom";
 import { CartIcon } from "../components/Icons/Icons";
-import { useAppDispatch, useAppSelector } from "../features/hooks";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { useEffect } from "react";
-import { fetchUserCartById } from "../features/cart/cartThunkActions";
+import { fetchUserCartById } from "../redux/cart/cartThunkActions";
 
 function Root() {
   const dispatch = useAppDispatch();

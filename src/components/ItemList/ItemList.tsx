@@ -4,7 +4,7 @@ import { Button, ItemCard, Loader } from "../";
 import { IItem } from "../../types/types";
 import styles from "./ItemList.module.css";
 import { debounce } from "lodash";
-import { useGetProductsQuery } from "../../features/products/productsApi";
+import { useGetProductsQuery } from "../../redux/products/productsApi";
 
 export function ItemList() {
   const [items, setItems] = useState<IItem[]>([]);

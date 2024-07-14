@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./Cart.module.css";
 import { CartItem } from "../../components";
 import { Helmet } from "react-helmet-async";
-import { useAppSelector } from "../../features/hooks";
+import { useAppSelector } from "../../redux/hooks";
 import { ICartInfo } from "../../types/types";
 
 

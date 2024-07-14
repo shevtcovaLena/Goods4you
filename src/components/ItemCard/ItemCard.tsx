@@ -3,7 +3,7 @@ import { ICartItem, IItem } from "../../types/types";
 import styles from "./ItemCard.module.css";
 import { Counter, Preview } from "..";
 import { Link } from "react-router-dom";
-import { useAppSelector } from "../../features/hooks";
+import { useAppSelector } from "../../redux/hooks";
 import { getPrice } from "../../helpers/getPrice";
 
 interface ItemCardProps {

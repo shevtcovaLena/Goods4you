@@ -3,10 +3,10 @@ import { useParams } from "react-router-dom";
 import styles from "./ProductPage.module.css";
 import { Counter, Gallery, Loader, Rating } from "../../components";
 import { Helmet } from "react-helmet-async";
-import { useGetProductByIdQuery } from "../../features/products/productsApi";
+import { useGetProductByIdQuery } from "../../redux/products/productsApi";
 import { getPrice } from "../../helpers/getPrice";
 import { ErrorPage } from "../ErrorPage/ErrorPage";
-import { useAppSelector } from "../../features/hooks";
+import { useAppSelector } from "../../redux/hooks";
 import { ICartItem } from "../../types/types";
 
 export function ProductPage() {

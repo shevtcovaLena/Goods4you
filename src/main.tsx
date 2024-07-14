@@ -5,7 +5,7 @@ import "./styles/index.css";
 import Root from "./routes/root.tsx";
 import { ErrorPage, Catalog, ProductPage, Cart } from "./routes/";
 import { Provider } from "react-redux";
-import { store } from "./features/store.ts";
+import { store } from "./redux/store.ts";
 
 const router = createBrowserRouter([
   {
