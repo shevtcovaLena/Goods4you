@@ -8,3 +8,4 @@ export { CartItem } from "./CartItem/CartItem";
 export { Counter } from "./Counter/Counter";
 export { Preview } from "./Preview/Preview";
 export { Loader } from "./Loader/Loader";
+export { Navbar } from "./Navbar/Navbar";

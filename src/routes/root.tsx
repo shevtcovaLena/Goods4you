@@ -2,10 +2,11 @@
 
 import { HelmetProvider } from "react-helmet-async";
 import { Link, Outlet } from "react-router-dom";
-import { CartIcon } from "../components/Icons/Icons";
+// import { CartIcon } from "../components/Icons/Icons";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { useEffect } from "react";
 import { fetchUserCartById } from "../redux/cart/cartThunkActions";
+import { Navbar } from "../components";
 
 function Root() {
   const dispatch = useAppDispatch();
@@ -13,36 +14,14 @@ function Root() {
   
   useEffect(() =>{
     void dispatch(fetchUserCartById(23))
-  }, [dispatch])
-  
+  }, [dispatch])  
   
   return (
     <HelmetProvider>
       <header>
         <div className="container">
           <Link to="/" id="logo">Goods4you</Link>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/#catalog">Catalog</Link>
-              </li>
-              <li>
-                <Link to="/#faq">FAQ</Link>
-              </li>
-              <li>
-                <Link to="/cart" className="link-with-icon">
-                  Cart
-                  <span className="icon">
-                      { CartIcon }
-                    {cartInfo.totalQuantity? <div className="circle-badge">
-                      <p>{cartInfo.totalQuantity}</p>
-                    </div> : <></>}
-                  </span>
-                </Link>
-              </li>
-              <li>Johnson Smith</li>
-            </ul>
-          </nav>
+          <Navbar cartInfo={cartInfo}/>
         </div>
       </header>
       <main>

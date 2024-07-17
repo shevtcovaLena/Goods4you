@@ -25,7 +25,8 @@ export function Cart() {
                 item={item}
                 count={item.quantity as number}
                 current={current === item.id ? true : false}
-                onClick={() => setCurrent(item.id)} />
+                onClick={() => setCurrent(item.id)} 
+                />
             ))}
           </div>
           <div className={styles.contentRight}>

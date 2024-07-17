@@ -128,6 +128,24 @@ main {
   margin: 0 10px;
 }
 
+input {
+  width: 100%;
+  background-color: #F6F6F6;
+  height: 62px;
+  font-size: 16px;
+  line-height: 22px;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+input::placeholder {
+  color: #B2B5BB;
+}
+
+input:focus {
+  outline: none;
+}
+
 header .container,
 footer .container {
   display: flex;

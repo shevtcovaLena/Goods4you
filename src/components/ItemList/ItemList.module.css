@@ -12,7 +12,7 @@
     gap: 20px 35px;
 }
 
-.catalog input {
+/* .catalog input {
     width: 100%;
     background-color: #F6F6F6;
     height: 62px;
@@ -28,7 +28,7 @@
 
 .catalog input:focus {
     outline: none;
-}
+} */
 
 .buttonBox {
     display: flex;
