@@ -3,7 +3,8 @@ import { Navigate } from "react-router-dom";
 import { useFetchUserByTokenQuery } from "../../redux/user/userApi";
 import { Loader } from "../../components";
 import { useAppDispatch } from "../../redux/hooks";
-import { setUser } from "../../redux/user/userSlice";
+import { setUser, unSetUser } from "../../redux/user/userSlice";
+import { FetchBaseQueryError } from "@reduxjs/toolkit/query/react";
 
 interface Props {
   element: React.ReactElement;
@@ -13,7 +14,12 @@ export const ProtectedRouteAuth = ({ element }: Props) => {
   const dispatch = useAppDispatch();
   const token = localStorage.getItem("authToken");
 
-  const { data: user, isLoading, isError, error } = useFetchUserByTokenQuery(token ?? "");
+  const {
+    data: user,
+    isLoading,
+    isError,
+    error,
+  } = useFetchUserByTokenQuery(token ?? "");
 
   useEffect(() => {
     if (user) {
@@ -26,12 +32,15 @@ export const ProtectedRouteAuth = ({ element }: Props) => {
   }
 
   if (isError) {
-    if (error?.status == 401 || error?.status == 403) {
-      localStorage.removeItem('authToken')
+    if (
+      (error as FetchBaseQueryError)?.status == 401 ||
+      (error as FetchBaseQueryError)?.status == 403
+    ) {
+      dispatch(unSetUser());
     }
     return <Navigate to="/login" />;
   }
-  
+
   if (!user) {
     return <Navigate to="/login" />;
   }

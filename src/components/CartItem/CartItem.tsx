@@ -9,8 +9,8 @@ interface Props {
   item: ICartItem;
   count: number;
   current: boolean;
-  // onPlus: () => void;
-  // onMinus: () => void;
+  onPlus: () => void;
+  onMinus: () => void;
   onClick: () => void;
 }
 
@@ -18,7 +18,8 @@ export function CartItem({
   item,
   count,
   current,
-  /*onPlus, onMinus, ,*/
+  onPlus,
+  onMinus,
   onClick,
 }: Props) {
   return (
@@ -41,7 +42,7 @@ export function CartItem({
         </div>
       </div>
       <div className={styles.rightPart}>
-          <Counter count={count} /*onMinus={onMinus} onPlus={onPlus}*/ />
+          <Counter count={count} onMinus={onMinus} onPlus={onPlus}/>
           {count !== 0 && <button className={styles.delete}>Delete</button>}
       </div>
     </div>

@@ -2,18 +2,20 @@ import { HelmetProvider } from "react-helmet-async";
 import { Link, Outlet } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { useEffect } from "react";
-import { fetchUserCartById } from "../redux/cart/cartThunkActions";
 import { Navbar } from "../components";
+import { fetchUserCartById } from "../redux/cart/cartThunkActions";
 
 function Root() {
   const dispatch = useAppDispatch();
-  const cartInfo = useAppSelector((store) => store.cartSlice.cartInfo);
-  const isLoading = useAppSelector((store) => store.cartSlice.isLoading);
+  const {cartInfo,
+    //  isLoading,
+    } = useAppSelector((store) => store.cartSlice);
   const userInfo = useAppSelector((store) => store.userSlice.userInfo);
-
+  
   useEffect(() => {
     if (userInfo) {
-      void dispatch(fetchUserCartById(userInfo.id));
+      const {id, token} = userInfo;
+      void dispatch(fetchUserCartById({id, token}));
     }
   }, [userInfo, dispatch]);
 
@@ -24,7 +26,7 @@ function Root() {
           <Link to="/" id="logo">
             Goods4you
           </Link>
-          {userInfo && !isLoading && cartInfo && <Navbar cartInfo={cartInfo} userInfo={userInfo} />}
+          {userInfo && cartInfo && <Navbar cartInfo={cartInfo} userInfo={userInfo} />}
         </div>
       </header>
       <main>

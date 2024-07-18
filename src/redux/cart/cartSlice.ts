@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchUserCartById } from "./cartThunkActions";
+import { fetchPutCart, fetchUserCartById } from "./cartThunkActions";
 import { ICartInfo } from "../../types/types";
 
 export interface ICartState {
@@ -7,16 +7,18 @@ export interface ICartState {
   isLoading: boolean;
 }
 
+export const initialCart: ICartInfo = {
+  id: 0,
+  products: [],
+  total: 0,
+  discountedTotal: 0,
+  userId: 0,
+  totalProducts: 0,
+  totalQuantity: 0,
+};
+
 const initialState: ICartState = {
-  cartInfo: {
-    id: 0,
-    products: [],
-    total: 0,
-    discountedTotal: 0,
-    userId: 0,
-    totalProducts: 0,
-    totalQuantity: 0,
-  },
+  cartInfo: initialCart,
   isLoading: true,
 };
 
@@ -26,11 +28,18 @@ export const cartSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchUserCartById.fulfilled, (state, { payload }) => {
-        state.cartInfo = payload;
-        state.isLoading = false;
+      state.cartInfo = payload;
+      state.isLoading = false;
     });
     builder.addCase(fetchUserCartById.pending, (state) => {
-        state.isLoading = true;
+      state.isLoading = true;
+    });
+    builder.addCase(fetchPutCart.fulfilled, (state, { payload }) => {
+      state.cartInfo = payload;
+      state.isLoading = false;
+    });
+    builder.addCase(fetchPutCart.pending, (state) => {
+      state.isLoading = true;
     });
   },
 });

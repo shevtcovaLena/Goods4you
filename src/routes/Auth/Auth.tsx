@@ -6,6 +6,7 @@ import { useAppDispatch } from "../../redux/hooks";
 import { useLoginUserMutation } from "../../redux/user/userApi";
 import { setUser } from "../../redux/user/userSlice";
 import { ErrorPage } from "../ErrorPage/ErrorPage";
+import { useNavigate } from "react-router-dom";
 
 const initFormData = {
   username: "",
@@ -13,7 +14,7 @@ const initFormData = {
 };
 
 export function Auth() {
-//   const navigate = useNavigate();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState<IFormData>(initFormData);
   const dispatch = useAppDispatch();
   const [login, { isLoading, isError }] = useLoginUserMutation();
@@ -31,7 +32,7 @@ export function Auth() {
       const user = await login(formData).unwrap();
       localStorage.setItem("authToken", user.token);
       dispatch(setUser(user));
-    //   navigate("/");
+      navigate("/");
     } catch (err) {
       console.error("Failed to login", err);
     }
