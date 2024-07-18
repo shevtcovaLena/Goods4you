@@ -6,6 +6,8 @@ import Root from "./routes/root.tsx";
 import { ErrorPage, Catalog, ProductPage, Cart, Auth } from "./routes/";
 import { Provider } from "react-redux";
 import { store } from "./redux/store.ts";
+import { ProtectedRouteAuth } from "./routes/ProtectedRoute/ProtectedRouteAuth.tsx";
+import { ProtectedRouteUnauth } from "./routes/ProtectedRoute/ProtectedRouteUnauth.tsx";
 
 const router = createBrowserRouter([
   {
@@ -13,18 +15,18 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
-      { index: true, element: <Catalog /> },
+      { index: true, element: <ProtectedRouteAuth element={<Catalog />} /> },
       {
         path: "product/:productId",
-        element: <ProductPage />,
+        element: <ProtectedRouteAuth element={<ProductPage />} />,
       },
       {
         path: "cart",
-        element: <Cart />,
+        element: <ProtectedRouteAuth element={<Cart />} />,
       },
       {
         path: "login",
-        element: <Auth />,
+        element: <ProtectedRouteUnauth element={<Auth />} />,
       },
     ],
   },

@@ -52,3 +52,20 @@ export interface IProductsQuery {
   limit?: number;
   skip?: number;
 }
+
+export interface IFormData {
+  username: string;
+  password: string;
+}
+
+export interface IUser {
+  id: number;
+  username: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  gender: "female" | "male";
+  image: string;
+  token: string;
+  refreshToken: string;
+}

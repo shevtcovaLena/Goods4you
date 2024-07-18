@@ -1,38 +1,31 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { fetchUser } from "./userThunkActions";
-import { ICartInfo } from "../../types/types";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IUser } from "../../types/types";
 
 export interface ICartState {
-  cartInfo: ICartInfo;
-  isLoading: boolean;
+  isAuth: boolean;
+  userInfo: IUser | null;
 }
 
 const initialState: ICartState = {
-  cartInfo: {
-    id: 0,
-    products: [],
-    total: 0,
-    discountedTotal: 0,
-    userId: 0,
-    totalProducts: 0,
-    totalQuantity: 0,
-  },
-  isLoading: true,
+  isAuth: false,
+  userInfo: null,
 };
 
-export const cartSlice = createSlice({
-  name: "cartSlise",
+export const userSlice = createSlice({
+  name: "userSlise",
   initialState,
-  reducers: {},
-  extraReducers: (builder) => {
-    builder.addCase(fetchUserCartById.fulfilled, (state, { payload }) => {
-        state.cartInfo = payload;
-        state.isLoading = false;
-    });
-    builder.addCase(fetchUserCartById.pending, (state) => {
-        state.isLoading = true;
-    });
+  reducers: {
+    setUser: (state, action: PayloadAction<IUser>) => {
+        state.userInfo = action.payload;
+        state.isAuth = true;
+      },
+    unSetUser: (state) => {
+        state.userInfo = null;
+        state.isAuth = false;
+      },    
   },
 });
 
-export default cartSlice.reducer;
+
+export const { setUser, unSetUser } = userSlice.actions;
+export default userSlice.reducer;

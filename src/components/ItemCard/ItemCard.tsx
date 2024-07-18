@@ -11,28 +11,30 @@ interface ItemCardProps {
 }
 
 export function ItemCard({ item }: ItemCardProps) {
-const cart= useAppSelector((store) => store.cartSlice.cartInfo)
+  const cart = useAppSelector((store) => store.cartSlice.cartInfo);
+  const productInCart =
+    cart && cart.products.find((product: ICartItem) => product.id === item.id);
+  const productQuantity = productInCart ? productInCart.quantity : 0;
 
-const productInCart = cart.products.find((product: ICartItem) => product.id === item.id);
-const productQuantity = productInCart ? productInCart.quantity : 0;
-
-return (
+  return (
     <Link to={`/product/${item.id}`} className={styles.link}>
       <div className={styles.cardBox}>
         <div className={styles.imgBox}>
           <div className={styles.hover}>Show details</div>
-          <Preview image={item.thumbnail}/>
+          <Preview image={item.thumbnail} />
         </div>
         <div className={styles.extra}>
           <div className={styles.extraLeft}>
             <p>{item.title}</p>
             <span>{`${getPrice(item.price, item.discountPercentage)} $`}</span>
           </div>
-          <div onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            }}>
-          <Counter count={productQuantity} />
+          <div
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+            }}
+          >
+            <Counter count={productQuantity} />
           </div>
         </div>
       </div>
