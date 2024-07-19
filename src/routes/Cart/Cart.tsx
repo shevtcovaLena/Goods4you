@@ -9,7 +9,7 @@ import { fetchPutCart } from "../../redux/cart/cartThunkActions";
 export function Cart() {
   const cartData: ICartInfo = useAppSelector(
     (store) => store.cartSlice.cartInfo
-  );//TODO предусмотреть вариант на случай isLoading
+  );
   const { token } = useAppSelector((store) => store.userSlice);
   const [current, setCurrent] = useState<number | null>(null);
   const [cart, setCart] = useState<ICartInfo>(cartData);
@@ -37,7 +37,6 @@ export function Cart() {
       );
       return { ...prevCart, products: updatedProducts };
     });
-    // void dispatch(fetchPutCart({ cart, token }))
   };
 
   const handleMinus = (item: ICartItem) => {
@@ -49,7 +48,17 @@ export function Cart() {
       );
       return { ...prevCart, products: updatedProducts };
     });
-    // void dispatch(fetchPutCart({ cart, token }))
+  };
+
+  const handleDelete = (item: ICartItem) => {
+    setCart((prevCart: ICartInfo) => {
+      const updatedProducts = prevCart.products.map((product) =>
+        product.id === item.id
+          ? { ...product, quantity: 0 }
+          : product
+      );
+      return { ...prevCart, products: updatedProducts };
+    });
   };
 
   return (
@@ -70,6 +79,7 @@ export function Cart() {
                   current={current === item.id ? true : false}
                   onPlus={() => handlePlus(item)}
                   onMinus={() => handleMinus(item)}
+                  onDelete={() => handleDelete(item)}
                   onClick={() => setCurrent(item.id)}
                 />
               ))}

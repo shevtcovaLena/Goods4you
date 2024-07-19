@@ -8,6 +8,7 @@ import {
   PlusIcon18,
   PlusIcon30,
 } from "../Icons/Icons";
+import { LoaderInLine } from "../LoaderInLine/LoaderInLine";
 
 interface Props {
   count?: number;
@@ -15,6 +16,7 @@ interface Props {
   onPlus: () => void;
   onMinus: () => void;
   max?: number;
+  isLoading?: boolean; 
 }
 
 export function Counter({
@@ -23,6 +25,7 @@ export function Counter({
   onMinus,
   onPlus,
   max,
+  isLoading=false,
 }: Props) {
   if (max === 0) {
     return (
@@ -58,7 +61,9 @@ export function Counter({
           onClick={onMinus}
         />
         <div className={style.number}>
-          {`${count} ${count > 1 ? "items" : "item"}`}
+          {isLoading? 
+          <LoaderInLine/>
+           : `${count} ${count > 1 ? "items" : "item"}`}
         </div>
         {max && count >= max ? (
           <Button

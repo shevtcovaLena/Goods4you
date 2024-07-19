@@ -14,6 +14,7 @@ interface ItemCardProps {
 export function ItemCard({ item }: ItemCardProps) {
   const { token } = useAppSelector((store) => store.userSlice);
   const cart = useAppSelector((store) => store.cartSlice.cartInfo);
+  const isLoading: boolean = useAppSelector((store) => store.cartSlice.isLoading)
   const productInCart = cart && cart.products.find((product: ICartItem) => product.id === item.id);
   const productQuantity = productInCart ? productInCart.quantity : 0;
   const dispatch = useAppDispatch();
@@ -77,7 +78,7 @@ export function ItemCard({ item }: ItemCardProps) {
               e.stopPropagation();
             }}
           >
-            <Counter count={productQuantity} onPlus={() => handlePlus(item)} onMinus={() => handleMinus(item)} max={item.stock}/>
+            <Counter count={productQuantity} onPlus={() => handlePlus(item)} onMinus={() => handleMinus(item)} max={item.stock} isLoading={isLoading}/>
           </div>
         </div>
       </div>

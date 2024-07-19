@@ -4,6 +4,7 @@ import styles from "./CartItem.module.css";
 import { Link } from "react-router-dom";
 import { Counter } from "../";
 import { getPrice } from "../../helpers/getPrice";
+import { useAppSelector } from "../../redux/hooks";
 
 interface Props {
   item: ICartItem;
@@ -11,6 +12,7 @@ interface Props {
   current: boolean;
   onPlus: () => void;
   onMinus: () => void;
+  onDelete: () => void;
   onClick: () => void;
 }
 
@@ -20,8 +22,12 @@ export function CartItem({
   current,
   onPlus,
   onMinus,
+  onDelete,
   onClick,
 }: Props) {
+
+  const isLoading: boolean = useAppSelector((store) => store.cartSlice.isLoading)
+
   return (
     <div
       className={`${styles.card} ${current ? styles.active : ""}`}
@@ -42,8 +48,8 @@ export function CartItem({
         </div>
       </div>
       <div className={styles.rightPart}>
-          <Counter count={count} onMinus={onMinus} onPlus={onPlus}/>
-          {count !== 0 && <button className={styles.delete}>Delete</button>}
+          <Counter count={count} onMinus={onMinus} onPlus={onPlus} isLoading={isLoading}/>
+          {count !== 0 && <button className={styles.delete} onClick={onDelete}>Delete</button>}
       </div>
     </div>
   );

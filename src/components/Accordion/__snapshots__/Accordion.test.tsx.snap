@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders AccordionItem and matches snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <div>
+      Accordion Title
+      <span
+        class="undefined "
+      />
+    </div>
+    <div
+      class="undefined "
+    >
+      <p>
+        Accordion Content
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`renders AccordionItem and matches snapshot 2`] = `
+<DocumentFragment>
+  <div>
+    <div>
+      Accordion Title
+      <span
+        class="undefined undefined"
+      />
+    </div>
+    <div
+      class="undefined undefined"
+    >
+      <p>
+        Accordion Content
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;

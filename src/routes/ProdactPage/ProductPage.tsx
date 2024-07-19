@@ -18,37 +18,13 @@ export function ProductPage() {
 
   const { token } = useAppSelector((store) => store.userSlice);
   const cart = useAppSelector((store) => store.cartSlice.cartInfo);
-
+  const cartLoading: boolean = useAppSelector((store) => store.cartSlice.isLoading)
+  
   const productInCart = cart.products.find(
     (product: ICartItem) => product.id === Number(productId)
   );
   const productQuantity = productInCart ? productInCart.quantity : 0;
   const dispatch = useAppDispatch();
-
-  //   const handlePlus = (item: ICartItem) => {
-  //   const getNewCart = (prevCart: ICartInfo) => {
-  //     const productExists = prevCart.products.some((product) => product.id === item.id);
-
-  //     let updatedProducts;
-  //     if (productExists) {
-  //       updatedProducts = prevCart.products.map((product) =>
-  //         product.id === item.id
-  //           ? { ...product, quantity: product.quantity + 1 }
-  //           : product
-  //       );
-  //     } else {
-  //       updatedProducts = [...prevCart.products, { ...item, quantity: 1 }];
-  //     }
-
-  //     return { ...prevCart, products: updatedProducts };
-  //   };
-
-  //   setCart((prevCart) => {
-  //     const newCart = getNewCart(prevCart);
-  //     void dispatch(fetchPutCart({ cart: newCart, token }));
-  //     return newCart;
-  //   });
-  // };
 
   const handlePlus = (item: IItem) => {
     const getNewCart = (prevCart: ICartInfo) => {
@@ -139,6 +115,7 @@ export function ProductPage() {
                   onMinus={() => handleMinus(data)}
                   max={data.stock}
                   variation="large"
+                  isLoading={cartLoading}
                 />
               </div>
             </div>
