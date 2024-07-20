@@ -1,4 +1,3 @@
-// import React from 'react'
 import styles from './LoaderInLine.module.css'
 
 export function LoaderInLine() {

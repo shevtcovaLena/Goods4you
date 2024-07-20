@@ -1,5 +1,3 @@
-// import React from 'react'
-
 export function Loader({variant} : {variant: "small" | "large"}) {
 const large = {
     width: "250px",
