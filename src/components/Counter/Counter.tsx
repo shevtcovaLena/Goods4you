@@ -1,4 +1,3 @@
-// import React from "react";
 import style from "./Counter.module.css";
 import { Button } from "../";
 import {
@@ -34,6 +33,7 @@ export function Counter({
         width={variation === "small" ? 50 : 176}
         height={variation === "small" ? 50 : 62}
         disable
+        testid="cart"
       />
     );
   }
@@ -45,6 +45,7 @@ export function Counter({
         width={variation === "small" ? 50 : 176}
         height={variation === "small" ? 50 : 62}
         onClick={onPlus}
+        testid="plus"
       />
     );
   }
@@ -59,6 +60,7 @@ export function Counter({
           width={variation === "small" ? 50 : 70}
           height={variation === "small" ? 50 : 62}
           onClick={onMinus}
+          testid="minus"
         />
         <div className={style.number}>
           {isLoading? 
@@ -70,6 +72,7 @@ export function Counter({
             content={variation === "small" ? PlusIcon18 : PlusIcon30}
             width={variation === "small" ? 50 : 70}
             height={variation === "small" ? 50 : 62}
+            testid="plus"
             disable
           />
         ) : (
@@ -78,6 +81,7 @@ export function Counter({
             width={variation === "small" ? 50 : 70}
             height={variation === "small" ? 50 : 62}
             onClick={onPlus}
+            testid="plus"
           />
         )}
       </div>

@@ -8,6 +8,7 @@ interface Props {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   role?: string;
   disable?: boolean;
+  testid?: string;
 }
 
 export function Button({
@@ -17,6 +18,7 @@ export function Button({
   onClick,
   role,
   disable = false,
+  testid,
 }: Props) {
   return (
     <button
@@ -25,6 +27,7 @@ export function Button({
       style={{ width: `${width}px`, height: `${height}px` }}
       onClick={onClick? onClick : () => {}}
       role={role ? role : "button"}
+      data-testid={testid}
     >
       {content}
     </button>

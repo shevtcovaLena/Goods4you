@@ -4,7 +4,6 @@ import { Navbar } from './Navbar';
 import { BrowserRouter } from 'react-router-dom';
 import { ICartInfo, IUser } from '../../types/types';
 
-// Мок данных
 const mockCartInfo = {
   totalQuantity: 3,
 };
@@ -37,7 +36,7 @@ describe('Navbar component', () => {
     );
 
     const cartLink = screen.getByText(/Cart/i);
-    const badge = screen.getByText(/3/i); // проверяем, что отображается количество
+    const badge = screen.getByText(/3/i);
 
     expect(cartLink).toBeInTheDocument();
     expect(badge).toBeInTheDocument();
@@ -64,6 +63,6 @@ describe('Navbar component', () => {
     );
 
     const badge = screen.queryByText(/0/i);
-    expect(badge).toBeNull(); // badge не должен отображаться
+    expect(badge).toBeNull();
   });
 });

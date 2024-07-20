@@ -14,7 +14,7 @@ const small = {
 
     return (
        <div className="loader-box">
-        <span className="loader" style={variant==="small"? small: large}></span>
+        <span role="status" className="loader" style={variant==="small"? small: large}></span>
        </div> 
     )
 }

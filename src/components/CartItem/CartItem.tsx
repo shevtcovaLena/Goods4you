@@ -1,4 +1,3 @@
-// import React from "react";
 import { ICartItem } from "../../types/types";
 import styles from "./CartItem.module.css";
 import { Link } from "react-router-dom";
