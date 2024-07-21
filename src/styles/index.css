@@ -222,6 +222,10 @@ li {
   align-items: center;
 }
 
+.error {
+  color: var(--accent)
+}
+
 @keyframes rotation {
   0% { transform: rotate(0deg) }
   100% { transform: rotate(360deg) }

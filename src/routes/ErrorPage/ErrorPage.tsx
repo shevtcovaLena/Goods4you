@@ -2,7 +2,7 @@ import { SerializedError } from "@reduxjs/toolkit";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { useRouteError } from "react-router-dom";
 
-interface IError {
+export interface IError {
   statusText?: string;
   message?: string;
   status?: number | string;
@@ -20,8 +20,8 @@ export function ErrorPage({ externalError }: Props) {
 
   return (
     <div id="error-page">
-      <h1>{`Ошибка! ${error?.status? error.status : ""}`}</h1>
-      <p>Извините, произошла ошибка.</p>
+      <h1 className="error">{`! Error ${error?.status ? error.status : ""}`}</h1>
+      <p>Sorry, an error has occurred.</p>
       <p>
         <i>{error?.statusText || error?.message || error?.error || error?.data?.message}</i>
       </p>

@@ -1,4 +1,3 @@
-// import React from "react";
 import { useEffect, useState } from "react";
 import { Button, ItemCard, Loader } from "../";
 import { IItem } from "../../types/types";

@@ -25,31 +25,3 @@ export const userApi = createApi({
 });
 
 export const { useLoginUserMutation, useFetchUserByTokenQuery } = userApi;
-
-//---------------------------------------------------------------------------
-// login: builder.mutation({
-//   query: (credentials) => ({
-//     url: 'auth/login',
-//     method: 'POST',
-//     body: credentials,
-
-// addPost: builder.mutation({
-//   query: (newPost) => ({
-//     url: 'products',
-//     method: 'POST',
-//     body: newPost,
-//   }),
-// }),
-// updatePost: builder.mutation({
-//   query: ({ id, ...updatedPost }) => ({
-//     url: `products/${id}`,
-//     method: 'PUT',
-//     body: updatedPost,
-//   }),
-// }),
-// deletePost: builder.mutation({
-//   query: (id) => ({
-//     url: `products/${id}`,
-//     method: 'DELETE',
-//   }),
-// }),

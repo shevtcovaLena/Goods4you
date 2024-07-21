@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { Navigate } from "react-router-dom";
-// import { useAppSelector } from '../../redux/hooks';
 import { useFetchUserByTokenQuery } from "../../redux/user/userApi";
 import { Loader } from "../../components";
 import { useAppDispatch } from "../../redux/hooks";
@@ -16,7 +15,6 @@ export const ProtectedRouteUnauth = ({ element }: Props) => {
   const {
     data: user,
     isLoading,
-    // isError,
   } = useFetchUserByTokenQuery(token ?? "");
 
   useEffect(() => {

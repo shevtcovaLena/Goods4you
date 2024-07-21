@@ -2,6 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { ICartInfo } from "../../types/types";
 import { initialCart } from "./cartSlice";
+import { IError } from "../../routes/ErrorPage/ErrorPage";
 
 interface IGetUserCartArgs {
   id: number;
@@ -33,41 +34,23 @@ interface IPutCartArgs {
   token: string;
 }
 
-export const fetchPutCart = createAsyncThunk<ICartInfo, IPutCartArgs>(
+export const fetchPutCart = createAsyncThunk<ICartInfo, IPutCartArgs, { rejectValue: IError }>(
   "cart/update",
-  async ({ cart, token }: IPutCartArgs) => {
+  async ({ cart, token }: IPutCartArgs, { rejectWithValue }) => {
     try {
       const response = await axios.put<ICartInfo>(
         `https://dummyjson.com/carts/${cart.id}`,
-        {merge: false, products: cart.products},
+        { merge: false, products: cart.products },
         {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         }
       );
-      return response.data
+      return response.data;
     } catch (error) {
       console.error(error);
-      throw error;
+      return rejectWithValue(error as IError);
     }
   }
 );
-
-
-/* adding products in cart with id 1 */
-// fetch('https://dummyjson.com/carts/1', {
-//   method: 'PUT', /* or PATCH */
-//   headers: { 'Content-Type': 'application/json' },
-//   body: JSON.stringify({
-//     merge: true, // this will include existing products in the cart
-//     products: [
-//       {
-//         id: 1,
-//         quantity: 1,
-//       },
-//     ]
-//   })
-// })
-// .then(res => res.json())
-// .then(console.log);

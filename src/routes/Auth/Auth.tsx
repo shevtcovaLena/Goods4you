@@ -7,6 +7,7 @@ import { useLoginUserMutation } from "../../redux/user/userApi";
 import { setUser } from "../../redux/user/userSlice";
 import { ErrorPage } from "../ErrorPage/ErrorPage";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const initFormData = {
   username: "",
@@ -39,40 +40,45 @@ export function Auth() {
   };
 
   return (
-    <section className={`container ${styles.loginbox}`}>
-      <h1>Sign in</h1>
-      {!isLoading && !isError && (
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <label htmlFor="login" className={styles.hidden}>
-            Login
-          </label>
-          <input
-            type="text"
-            name="username"
-            id="login"
-            placeholder="Login"
-            onChange={handleChange}
-          />
-          <label htmlFor="password" className={styles.hidden}>
-            Login
-          </label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Password"
-            onChange={handleChange}
-          />
-          <Button
-            content="Sign in"
-            width={178}
-            height={62}
-            role="submit"
-          ></Button>
-        </form>
-      )}
-      {isLoading && <Loader variant="large" />}
-      {isError && <ErrorPage />}
-    </section>
+    <>
+      <Helmet>
+        <title>Sign in | Goods4you </title>
+      </Helmet>
+      <section className={`container ${styles.loginbox}`}>
+        <h1>Sign in</h1>
+        {!isLoading && !isError && (
+          <form className={styles.form} onSubmit={handleSubmit}>
+            <label htmlFor="login" className={styles.hidden}>
+              Login
+            </label>
+            <input
+              type="text"
+              name="username"
+              id="login"
+              placeholder="Login"
+              onChange={handleChange}
+            />
+            <label htmlFor="password" className={styles.hidden}>
+              Login
+            </label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+              onChange={handleChange}
+            />
+            <Button
+              content="Sign in"
+              width={178}
+              height={62}
+              role="submit"
+            ></Button>
+          </form>
+        )}
+        {isLoading && <Loader variant="large" />}
+        {isError && <ErrorPage />}
+      </section>
+    </>
   );
 }

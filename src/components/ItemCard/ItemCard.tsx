@@ -1,4 +1,3 @@
-// import React from "react";
 import { ICartInfo, ICartItem, IItem } from "../../types/types";
 import styles from "./ItemCard.module.css";
 import { Counter, Preview } from "..";

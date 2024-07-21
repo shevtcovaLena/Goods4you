@@ -1,4 +1,3 @@
-// import React from "react";
 import { useEffect } from "react";
 import { AccordionItem, Button, ItemList } from "../../components/";
 import styles from "./Catalog.module.css";

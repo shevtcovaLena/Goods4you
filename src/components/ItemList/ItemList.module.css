@@ -12,24 +12,6 @@
     gap: 20px 35px;
 }
 
-/* .catalog input {
-    width: 100%;
-    background-color: #F6F6F6;
-    height: 62px;
-    font-size: 16px;
-    line-height: 22px;
-    border-radius: 4px;
-    padding: 20px;
-}
-
-.catalog input::placeholder {
-    color: #B2B5BB;
-}
-
-.catalog input:focus {
-    outline: none;
-} */
-
 .buttonBox {
     display: flex;
     justify-content: center;

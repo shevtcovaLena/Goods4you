@@ -7,9 +7,7 @@ import { fetchUserCartById } from "../redux/cart/cartThunkActions";
 
 function Root() {
   const dispatch = useAppDispatch();
-  const {cartInfo,
-    //  isLoading,
-    } = useAppSelector((store) => store.cartSlice);
+  const {cartInfo} = useAppSelector((store) => store.cartSlice);
   const userInfo = useAppSelector((store) => store.userSlice.userInfo);
   
   useEffect(() => {
