@@ -1,0 +1,47 @@
+.accordion {
+  color: var(--text-secondary);
+}
+
+.title {
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  cursor: pointer;
+  transition: background-color 0.5s;
+  height: 80px;
+}
+
+.content {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+}
+
+.content p {
+    margin-bottom: 20px;
+}
+
+.content.open {
+  max-height: 300px;
+  transition: max-height 0.5s ease-in;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+  background-image: url("/src/assets/+.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: transform 0.5s;
+}
+
+.open.icon {
+  transform: rotate(45deg);
+}

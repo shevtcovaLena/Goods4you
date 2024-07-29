@@ -1,0 +1,18 @@
+.counter {
+    width: 188px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.counter.large {
+    width: 254px;
+}
+
+.number {
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.4;
+}

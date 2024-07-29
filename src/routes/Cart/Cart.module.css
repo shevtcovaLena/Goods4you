@@ -1,0 +1,116 @@
+.cart {
+  margin: 48px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.contentLeft {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 40px;
+  border-radius: 4px;
+  border: 1px solid #c4c4c4;
+  flex-grow: 1;
+  gap: 10px;
+  max-width: 776px;
+}
+
+.contentRight {
+  min-width: 356px;
+}
+
+.calculation,
+.total {
+  width: 100%;
+}
+
+.calculation {
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 20px;
+}
+
+.line {
+  display: flex;
+  justify-content: space-between;
+}
+
+.line p {
+  color: #b2b5bb;
+}
+
+.line span {
+  color: var(--bg-footer);
+}
+
+.calculation {
+  font-size: 20px;
+  line-height: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.total {
+  font-size: 24px;
+  line-height: 36px;
+  margin-top: 10px;
+}
+
+.calculation :nth-child(2) p,
+.total p {
+  font-weight: 600;
+}
+
+.calculation :nth-child(2) span,
+.total span {
+  font-weight: 700;
+}
+
+.nodata {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  color: #b2b5bb;
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: 500;
+}
+
+@media (max-width: 1220px) {
+  .cart {
+    width: 90%;
+    margin: auto;
+    max-width: 776px;
+  }
+
+  .content {
+    max-width: 776px;
+    flex-direction: column;
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 815px) {
+  .contentLeft {
+    padding: 10px 20px;
+  }
+
+  .contentRight {
+    min-width: 285px;
+  }
+}
+
+@media (max-width: 350px) {
+  .contentLeft {
+    padding: 0;
+    border: none;
+  }
+}
