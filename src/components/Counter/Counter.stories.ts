@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { fn } from '@storybook/test';
 import { Counter } from "./Counter";
 
 const meta = {
@@ -8,6 +9,7 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
+  args: { onPlus: fn(), onMinus: fn() },
 } satisfies Meta<typeof Counter>;
 
 export default meta;
