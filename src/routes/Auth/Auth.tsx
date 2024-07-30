@@ -10,8 +10,8 @@ import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 const initFormData = {
-  username: "",
-  password: "",
+  username: "williamg",
+  password: "williamgpass",
 };
 
 export function Auth() {
@@ -52,16 +52,18 @@ export function Auth() {
               Login
             </label>
             <input
+              value="williamg"
               type="text"
               name="username"
               id="login"
               placeholder="Login"
               onChange={handleChange}
-            />
+              />
             <label htmlFor="password" className={styles.hidden}>
               Login
             </label>
             <input
+              value="williamgpass"
               type="password"
               name="password"
               id="password"
