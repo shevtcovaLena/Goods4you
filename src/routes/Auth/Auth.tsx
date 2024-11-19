@@ -31,7 +31,7 @@ export function Auth() {
     event.preventDefault();
     try {
       const user = await login(formData).unwrap();
-      localStorage.setItem("authToken", user.token);
+      localStorage.setItem("authToken", user.accessToken);
       dispatch(setUser(user));
       navigate("/");
     } catch (err) {
@@ -52,7 +52,7 @@ export function Auth() {
               Login
             </label>
             <input
-              value="williamg"
+              value={formData.username}
               type="text"
               name="username"
               id="login"
@@ -63,7 +63,7 @@ export function Auth() {
               Login
             </label>
             <input
-              value="williamgpass"
+              value={formData.password}
               type="password"
               name="password"
               id="password"

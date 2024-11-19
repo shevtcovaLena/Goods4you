@@ -66,6 +66,6 @@ export interface IUser {
   lastName: string;
   gender: "female" | "male";
   image: string;
-  token: string;
+  accessToken: string;
   refreshToken: string;
 }
